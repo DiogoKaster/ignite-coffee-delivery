@@ -1,5 +1,7 @@
+import { CoffeeCard } from './components/CoffeeCard'
 import { Intro } from './components/Intro'
 import { CoffeeList, HomeContainer } from './styles'
+import { coffeeList } from '../../utils/coffeeList'
 
 export function Home() {
   return (
@@ -7,7 +9,11 @@ export function Home() {
       <Intro />
       <HomeContainer>
         <h1>Nossos cafés</h1>
-        <CoffeeList></CoffeeList>
+        <CoffeeList>
+          {coffeeList.map((coffee) => (
+            <CoffeeCard key={coffee.id} coffee={coffee} />
+          ))}
+        </CoffeeList>
       </HomeContainer>
     </div>
   )
