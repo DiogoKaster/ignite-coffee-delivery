@@ -1,4 +1,10 @@
-import { CoffeeCardCategories, CoffeeCardContainer, CoffeeCardDescription, CoffeeCardInput, CoffeeCardPrice } from './styles'
+import {
+  CoffeeCardCategories,
+  CoffeeCardContainer,
+  CoffeeCardDescription,
+  CoffeeCardInput,
+  CoffeeCardPrice,
+} from './styles'
 import { ShoppingCartSimple } from '@phosphor-icons/react'
 
 type Coffee = {
@@ -15,6 +21,10 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  function click() {
+    console.log('click')
+  }
+
   return (
     <CoffeeCardContainer>
       <img src={coffee.imgSource} alt={coffee.name} />
@@ -33,11 +43,12 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
           <span>{coffee.price}</span>
         </CoffeeCardPrice>
         <div>
-          <input type="number"/>
-          <button><ShoppingCartSimple weight='fill' size={22} /></button>
+          <input type="number" />
+          <button onClick={click}>
+            <ShoppingCartSimple weight="fill" size={22} />
+          </button>
         </div>
       </CoffeeCardInput>
-
     </CoffeeCardContainer>
   )
 }

@@ -92,6 +92,7 @@ export const CoffeeCardInput = styled.div`
   }
 
   button {
+    cursor: pointer;
     display: flex;
     width: 2.375rem;
     height: 2.375rem;

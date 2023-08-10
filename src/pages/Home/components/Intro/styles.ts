@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import BackgroundIntro from '../../../../assets/Background.svg'
 
 export const IntroContainer = styled.div`
   display: flex;
@@ -6,6 +7,7 @@ export const IntroContainer = styled.div`
   height: 35rem;
   padding: 5rem 10rem;
   gap: 3.5rem;
+  background-image: url(${BackgroundIntro});
 `
 
 export const IntroMain = styled.div`
@@ -58,7 +60,8 @@ export const IntroDescriptionItem = styled.div<IntroDescriptionItemProps>`
   svg {
     border-radius: 50%;
     color: ${(props) => props.theme.white};
-    background: ${(props) => props.theme[DESCRIPTION_ITEM_BACKGROUND_COLORS[props.backgroundColor]]};
+    background: ${(props) =>
+      props.theme[DESCRIPTION_ITEM_BACKGROUND_COLORS[props.backgroundColor]]};
     padding: 0.5rem;
     width: 2rem;
     height: 2rem;
