@@ -1,13 +1,15 @@
+import { useContext, useRef } from 'react'
 import {
   CoffeeCardCategories,
-  CoffeeCardContainer,
   CoffeeCardDescription,
   CoffeeCardInput,
   CoffeeCardPrice,
 } from './styles'
 import { ShoppingCartSimple } from '@phosphor-icons/react'
+import { StoreContext } from '../../../../contexts/StoreContext'
+import { PaperContainer } from '../../../../components/Paper'
 
-type Coffee = {
+type CoffeeCard = {
   id: number
   name: string
   description: string
@@ -17,16 +19,30 @@ type Coffee = {
 }
 
 interface CoffeeCardProps {
-  coffee: Coffee
+  coffee: CoffeeCard
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  function click() {
-    console.log('click')
+  const coffeeNumberRef = useRef<HTMLInputElement>(null)
+  const { addToCart } = useContext(StoreContext)
+
+  function handleAddToCart() {
+    addToCart({
+      id: coffee.id,
+      name: coffee.name,
+      price: coffee.price,
+      quantity: Number(coffeeNumberRef.current?.value),
+    })
   }
 
   return (
-    <CoffeeCardContainer>
+    <PaperContainer
+      withBorder={true}
+      paddingSize={1.75}
+      gapSize={1.25}
+      isAligned={true}
+      imgSizeChange={true}
+    >
       <img src={coffee.imgSource} alt={coffee.name} />
       <CoffeeCardCategories>
         {coffee.categories.map((category) => (
@@ -43,12 +59,12 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
           <span>{coffee.price}</span>
         </CoffeeCardPrice>
         <div>
-          <input type="number" />
-          <button onClick={click}>
+          <input type="number" ref={coffeeNumberRef} />
+          <button onClick={handleAddToCart}>
             <ShoppingCartSimple weight="fill" size={22} />
           </button>
         </div>
       </CoffeeCardInput>
-    </CoffeeCardContainer>
+    </PaperContainer>
   )
 }

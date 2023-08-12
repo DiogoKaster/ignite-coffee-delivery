@@ -1,7 +1,12 @@
+import { PaperContainer } from '../../../../components/Paper'
+
 export function CheckoutResume() {
   return (
-    <div>
-      <h1>CheckoutResume</h1>
-    </div>
+    <>
+      <h2>Cafés selecionados</h2>
+      <PaperContainer withBorder={true}>
+        <p>Nome do café</p>
+      </PaperContainer>
+    </>
   )
 }

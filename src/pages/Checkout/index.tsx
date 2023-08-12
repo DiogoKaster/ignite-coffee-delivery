@@ -1,12 +1,16 @@
 import { CheckoutForm } from './components/CheckoutForm'
 import { CheckoutResume } from './components/CheckoutResume'
-import { CheckoutContainer } from './styles'
+import { CheckoutContainer, CheckoutMainContainer } from './styles'
 
 export function Checkout() {
   return (
     <CheckoutContainer>
-      <CheckoutForm />
-      <CheckoutResume />
+      <CheckoutMainContainer>
+        <CheckoutForm />
+      </CheckoutMainContainer>
+      <CheckoutMainContainer>
+        <CheckoutResume />
+      </CheckoutMainContainer>
     </CheckoutContainer>
   )
 }

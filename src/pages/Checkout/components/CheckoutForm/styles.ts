@@ -1,30 +1,5 @@
 import { styled } from 'styled-components'
 
-export const CheckoutFormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: 100%;
-
-  h2 {
-    font-family: Baloo 2;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%;
-  }
-`
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: ${(props) => props.theme['base-card']};
-  padding: 2.5rem;
-  width: 100%;
-  border-radius: 0.25rem;
-  gap: 2rem;
-`
-
 export const AdressInputs = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,7 +36,7 @@ export const AdressInputs = styled.div`
   }
 `
 
-export const AdressCardsInputs = styled.div`
+export const CardsInputs = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

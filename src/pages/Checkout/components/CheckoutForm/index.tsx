@@ -5,20 +5,16 @@ import {
   Bank,
   Money,
 } from '@phosphor-icons/react'
-import {
-  AdressCardsInputs,
-  AdressInputs,
-  CheckoutFormContainer,
-  InputContainer,
-} from './styles'
+import { PaperContainer } from '../../../../components/Paper'
+import { CardsInputs, AdressInputs } from './styles'
 import { CheckoutFormHeader } from './components/CheckoutFormHeader'
 import { CheckoutFormCard } from './components/CheckoutFormCard'
 
 export function CheckoutForm() {
   return (
-    <CheckoutFormContainer>
+    <>
       <h2>Complete seu pedido</h2>
-      <InputContainer>
+      <PaperContainer gapSize={2} paddingSize={2.5}>
         <CheckoutFormHeader
           color="yellowDark"
           title="Endereço de entrega"
@@ -38,15 +34,15 @@ export function CheckoutForm() {
             <input type="text" placeholder="UF" />
           </div>
         </AdressInputs>
-      </InputContainer>
-      <InputContainer>
+      </PaperContainer>
+      <PaperContainer gapSize={2} paddingSize={2.5}>
         <CheckoutFormHeader
           color="purple"
           title="Pagamento"
           description="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
           icon={<CurrencyDollarSimple size={22} />}
         />
-        <AdressCardsInputs>
+        <CardsInputs>
           <CheckoutFormCard
             icon={<CreditCard size={22} />}
             cardType="Cartão de crédito"
@@ -56,8 +52,8 @@ export function CheckoutForm() {
             cardType="Cartão de débito"
           />
           <CheckoutFormCard icon={<Money size={22} />} cardType="Dinheiro" />
-        </AdressCardsInputs>
-      </InputContainer>
-    </CheckoutFormContainer>
+        </CardsInputs>
+      </PaperContainer>
+    </>
   )
 }

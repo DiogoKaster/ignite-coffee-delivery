@@ -1,23 +1,5 @@
 import { styled } from 'styled-components'
 
-export const CoffeeCardContainer = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.25rem;
-  background: ${(props) => props.theme['base-card']};
-  border-top-right-radius: 40px;
-  border-bottom-left-radius: 40px;
-  margin-bottom: 0.5rem;
-
-  img {
-    width: 7.5rem;
-    height: 7.5rem;
-    margin-top: -2.5rem;
-  }
-`
-
 export const CoffeeCardCategories = styled.div`
   display: flex;
   flex-direction: row;
@@ -68,7 +50,7 @@ export const CoffeeCardInput = styled.div`
   gap: 0.25rem;
   margin-top: 1rem;
 
-  div {
+  div:last-child {
     display: flex;
     flex-direction: row;
     align-items: center;
