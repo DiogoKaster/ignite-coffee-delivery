@@ -8,6 +8,7 @@ import {
 import { ShoppingCartSimple } from '@phosphor-icons/react'
 import { StoreContext } from '../../../../contexts/StoreContext'
 import { PaperContainer } from '../../../../components/Paper'
+import Counter from '../../../../components/Counter'
 
 type CoffeeCard = {
   id: number
@@ -21,7 +22,6 @@ type CoffeeCard = {
 interface CoffeeCardProps {
   coffee: CoffeeCard
 }
-
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const coffeeNumberRef = useRef<HTMLInputElement>(null)
   const { addToCart } = useContext(StoreContext)
@@ -33,6 +33,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       price: coffee.price,
       quantity: Number(coffeeNumberRef.current?.value),
     })
+    console.log(coffeeNumberRef.current?.value)
   }
 
   return (
@@ -59,7 +60,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
           <span>{coffee.price}</span>
         </CoffeeCardPrice>
         <div>
-          <input type="number" ref={coffeeNumberRef} />
+          <Counter type="number" ref={coffeeNumberRef} />
           <button onClick={handleAddToCart}>
             <ShoppingCartSimple weight="fill" size={22} />
           </button>
