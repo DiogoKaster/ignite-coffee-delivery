@@ -22,16 +22,16 @@ export function CheckoutForm() {
           icon={<MapPinLine size={22} />}
         />
         <AdressInputs>
-          <input type="text" placeholder="CEP" />
-          <input type="text" placeholder="Rua" />
+          <input type="text" placeholder="CEP" name="cep" />
+          <input type="text" placeholder="Rua" name="rua" />
           <div>
-            <input type="text" placeholder="Número" />
-            <input type="text" placeholder="Complemento" />
+            <input type="text" placeholder="Número" name="numero" />
+            <input type="text" placeholder="Complemento" name="complemento" />
           </div>
           <div>
-            <input type="text" placeholder="Bairro" />
-            <input type="text" placeholder="Cidade" />
-            <input type="text" placeholder="UF" />
+            <input type="text" placeholder="Bairro" name="bairro" />
+            <input type="text" placeholder="Cidade" name="cidade" />
+            <input type="text" placeholder="UF" name="uf" />
           </div>
         </AdressInputs>
       </PaperContainer>

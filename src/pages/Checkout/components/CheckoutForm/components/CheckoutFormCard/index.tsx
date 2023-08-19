@@ -8,7 +8,7 @@ interface CheckoutFormCardProps {
 export function CheckoutFormCard({ icon, cardType }: CheckoutFormCardProps) {
   return (
     <CardContainer>
-      <input type="radio" name="radial" />
+      <input type="radio" name="typeOfPayment" value={cardType} />
       {icon}
       <span>{cardType}</span>
     </CardContainer>

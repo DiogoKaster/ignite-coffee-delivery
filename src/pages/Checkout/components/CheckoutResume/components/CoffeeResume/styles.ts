@@ -8,7 +8,7 @@ export const CoffeeResumeContainer = styled.div`
 `
 export const CoffeeResumeDetailsContainer = styled.div`
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   align-items: center;
   width: 100%;
 `

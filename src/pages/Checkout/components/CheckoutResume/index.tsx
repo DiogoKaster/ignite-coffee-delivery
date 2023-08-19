@@ -1,19 +1,27 @@
+import { useContext } from 'react'
 import { PaperContainer } from '../../../../components/Paper'
 import { CoffeeResume } from './components/CoffeeResume'
 import { PriceResumeContainer, ResumeButton } from './styles'
+import { StoreContext } from '../../../../contexts/StoreContext'
 
 export function CheckoutResume() {
+  const { cartList, totalPrice } = useContext(StoreContext)
+  const totalPriceWithDelivery = totalPrice + 3.5
+
   return (
     <>
       <h2>Cafés selecionados</h2>
       <PaperContainer withBorder={true} gapSize={1.5} paddingSize={2.5}>
-        <CoffeeResume />
-        <CoffeeResume />
-        <CoffeeResume />
+        {cartList.map((coffee) => (
+          <>
+            <CoffeeResume key={coffee.id} coffee={coffee} />
+            <hr></hr>
+          </>
+        ))}
         <PriceResumeContainer>
           <div>
             <p>Total de itens</p>
-            <span>R$ 9,90</span>
+            <span>R$ {totalPrice.toFixed(2)}</span>
           </div>
           <div>
             <p>Entrega</p>
@@ -21,7 +29,7 @@ export function CheckoutResume() {
           </div>
           <div>
             <p>Total</p>
-            <span>R$ 12,50</span>
+            <span>R$ {totalPriceWithDelivery.toFixed(2)}</span>
           </div>
         </PriceResumeContainer>
         <ResumeButton type="submit">CONFIRMAR PEDIDO</ResumeButton>

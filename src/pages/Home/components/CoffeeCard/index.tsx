@@ -15,7 +15,7 @@ type CoffeeCard = {
   name: string
   description: string
   categories: string[]
-  price: string
+  price: number
   imgSource: string
 }
 
@@ -31,6 +31,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       id: coffee.id,
       name: coffee.name,
       price: coffee.price,
+      imgSource: coffee.imgSource,
       quantity: Number(coffeeNumberRef.current?.value),
     })
     console.log(coffeeNumberRef.current?.value)
@@ -57,7 +58,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       <CoffeeCardInput>
         <CoffeeCardPrice>
           <p>R$</p>
-          <span>{coffee.price}</span>
+          <span>{coffee.price.toFixed(2)}</span>
         </CoffeeCardPrice>
         <div>
           <Counter type="number" ref={coffeeNumberRef} />
