@@ -7,7 +7,7 @@ export const CoffeeCardCategories = styled.div`
 
   span {
     padding: 0.25rem 0.5rem;
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-size: 0.625rem;
     font-style: normal;
     font-weight: 700;
@@ -31,6 +31,10 @@ export const CoffeeCardDescription = styled.div`
     font-weight: 700;
     line-height: 1.3;
     color: ${(props) => props.theme['base-subtitle']};
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 
   label {
@@ -38,6 +42,10 @@ export const CoffeeCardDescription = styled.div`
     font-weight: 400;
     line-height: 1.3;
     color: ${(props) => props.theme['base-label']};
+
+    @media (max-width: 768px) {
+      font-size: 0.75rem;
+    }
   }
 `
 

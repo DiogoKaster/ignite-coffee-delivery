@@ -3,6 +3,7 @@ import { CheckoutForm } from './components/CheckoutForm'
 import { CheckoutResume } from './components/CheckoutResume'
 import { CheckoutContainer, CheckoutMainContainer } from './styles'
 import { StoreContext } from '../../contexts/StoreContext'
+import { useNavigate } from 'react-router-dom'
 
 interface RequestDataCycle {
   cep: string
@@ -18,6 +19,7 @@ interface RequestDataCycle {
 
 export function Checkout() {
   const { addRequestData } = useContext(StoreContext)
+  const navigate = useNavigate()
 
   function handleSubmitRequestData(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -37,6 +39,7 @@ export function Checkout() {
     }
 
     addRequestData(data)
+    navigate('/checkout/filled')
   }
 
   return (

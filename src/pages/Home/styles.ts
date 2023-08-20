@@ -8,6 +8,11 @@ export const HomeContainer = styled.main`
   gap: 3.375rem;
   flex-shrink: 0;
 
+  @media (max-width: 768px) {
+    padding: 3rem;
+    gap: 3rem;
+  }
+
   h1 {
     font-size: 2rem;
     font-weight: bold;
@@ -23,4 +28,9 @@ export const CoffeeList = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
+
+  @media (max-width: 768px) {
+    gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  }
 `

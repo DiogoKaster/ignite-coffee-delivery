@@ -7,8 +7,17 @@ export const AdressInputs = styled.div`
   gap: 1rem;
   align-self: stretch;
 
+  @media (max-width: 768px) {
+    align-items: center;
+    width: 100%;
+  }
+
   :first-child {
     width: 20rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   div {
@@ -42,4 +51,10 @@ export const CardsInputs = styled.div`
   align-items: center;
   gap: 0.75rem;
   align-self: stretch;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
 `

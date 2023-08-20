@@ -6,6 +6,13 @@ export const CheckoutFilledContainer = styled.div`
   gap: 6rem;
   margin: 3rem 10rem;
   padding: 3rem;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 2rem;
+    padding: 1rem;
+  }
 `
 
 export const CheckoutFilledInfo = styled.div`
@@ -57,6 +64,10 @@ export const CheckoutFilledImage = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 
   img {
     width: 100%;

@@ -17,6 +17,11 @@ export const CardContainer = styled.label`
   text-transform: uppercase;
   transition: background 0.2s;
 
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+    width: 100%;
+  }
+
   &:hover {
     background: ${(props) => props.theme['base-hover']};
   }

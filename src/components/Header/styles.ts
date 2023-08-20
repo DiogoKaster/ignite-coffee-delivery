@@ -7,10 +7,18 @@ export const HeaderContainer = styled.header`
   padding: 2rem 10rem;
   background: ${(props) => props.theme.background};
 
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
   nav {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
+    @media (max-width: 768px) {
+      gap: 0.5rem;
+    }
   }
 `
 
@@ -23,6 +31,11 @@ export const BaseNavLinksContainer = styled.div`
   font-size: 0.875rem;
   line-height: 1.3;
   gap: 0.25rem;
+
+  @media (max-width: 768px) {
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
 
   a {
     display: flex;
@@ -54,7 +67,7 @@ export const ShoppingCartContainer = styled(BaseNavLinksContainer)`
     width: 1.25rem;
     height: 1.25rem;
     border-radius: 50%;
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 700;

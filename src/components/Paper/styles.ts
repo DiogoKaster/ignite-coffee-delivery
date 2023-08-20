@@ -32,4 +32,9 @@ export const PaperContainerStyled = styled.div<PaperContainerStyledProps>`
     height: 7.5rem;
     margin-top: -2.5rem;
   }`}
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    width: 100%;
+  }
 `
