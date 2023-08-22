@@ -1,13 +1,10 @@
-import { createContext, useEffect, useState } from 'react'
-
-interface Coffee {
-  id: number
-  name: string
-  price: number
-  quantity: number
-  imgSource: string
-}
-
+import { createContext, useEffect, useReducer, useState } from 'react'
+import { Coffee, storeReducer } from '../reducers/store/reducer'
+import {
+  addToCartAction,
+  deleteCoffeeFromCartAction,
+  updateCoffeeQuantityAction,
+} from '../reducers/store/actions'
 interface RequestData {
   cep: string
   rua: string
@@ -20,7 +17,7 @@ interface RequestData {
 }
 
 interface StoreContextType {
-  cartList: Coffee[]
+  cartListState: Coffee[]
   requestData: RequestData
   totalPrice: number
   totalQuantity?: number
@@ -39,7 +36,8 @@ interface StoreContextProviderProps {
 }
 
 export function StoreCotextProvider({ children }: StoreContextProviderProps) {
-  const [cartList, setCartList] = useState<Coffee[]>([])
+  const [cartListState, dispatch] = useReducer(storeReducer, [])
+
   const [totalPrice, setTotalPrice] = useState(0)
   const [totalQuantity, setTotalQuantity] = useState(0)
   const [requestData, setRequestData] = useState<RequestData>({
@@ -54,43 +52,28 @@ export function StoreCotextProvider({ children }: StoreContextProviderProps) {
   })
 
   useEffect(() => {
-    const totalPrice = cartList.reduce((acc, coffee) => {
+    const totalPrice = cartListState.reduce((acc, coffee) => {
       return acc + coffee.price * coffee.quantity
     }, 0)
 
-    const totalQuantity = cartList.reduce((acc, coffee) => {
+    const totalQuantity = cartListState.reduce((acc, coffee) => {
       return acc + coffee.quantity
     }, 0)
 
     setTotalQuantity(totalQuantity)
     setTotalPrice(totalPrice)
-  }, [cartList])
+  }, [cartListState])
 
   function addToCart(coffeeData: Coffee) {
-    setCartList((state) => {
-      return [...state, coffeeData]
-    })
+    dispatch(addToCartAction(coffeeData))
   }
 
   function updateCoffeeQuantity(coffeeId: number, quantity: number) {
-    const updatedCartList = cartList.map((coffee) => {
-      if (coffee.id === coffeeId) {
-        return {
-          ...coffee,
-          quantity,
-        }
-      }
-
-      return coffee
-    })
-
-    setCartList(updatedCartList)
+    dispatch(updateCoffeeQuantityAction(coffeeId, quantity))
   }
 
   function deleteCoffeeFromCart(coffeeId: number) {
-    const updatedCartList = cartList.filter((coffee) => coffee.id !== coffeeId)
-
-    setCartList(updatedCartList)
+    dispatch(deleteCoffeeFromCartAction(coffeeId))
   }
 
   function addRequestData(requestData: RequestData) {
@@ -100,7 +83,7 @@ export function StoreCotextProvider({ children }: StoreContextProviderProps) {
   return (
     <StoreContext.Provider
       value={{
-        cartList,
+        cartListState,
         addToCart,
         requestData,
         addRequestData,

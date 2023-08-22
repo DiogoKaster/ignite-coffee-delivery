@@ -5,14 +5,14 @@ import { PriceResumeContainer, ResumeButton } from './styles'
 import { StoreContext } from '../../../../contexts/StoreContext'
 
 export function CheckoutResume() {
-  const { cartList, totalPrice } = useContext(StoreContext)
+  const { cartListState, totalPrice } = useContext(StoreContext)
   const totalPriceWithDelivery = totalPrice + 3.5
 
   return (
     <>
       <h2>Cafés selecionados</h2>
       <PaperContainer withBorder={true} gapSize={1.5} paddingSize={2.5}>
-        {cartList.map((coffee) => (
+        {cartListState.map((coffee) => (
           <>
             <CoffeeResume key={coffee.id} coffee={coffee} />
             <hr></hr>
