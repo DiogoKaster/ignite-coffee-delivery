@@ -11,13 +11,13 @@ export const CoffeeResumeDetailsContainer = styled.div`
   gap: 1.5rem;
   align-items: center;
   width: 100%;
-`
-export const CoffeeResumeImage = styled.img`
-  display: flex;
-  width: 4rem;
-  height: 4rem;
-  justify-content: center;
-  align-items: center;
+
+  @media (max-width: 768px) {
+    div > img {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
 `
 
 export const CoffeeResumeDetails = styled.div`
@@ -39,6 +39,10 @@ export const CoffeeResumeDetails = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 `
 export const CoffeeResumeTrashButton = styled.button`
@@ -55,7 +59,7 @@ export const CoffeeResumeTrashButton = styled.button`
   border: none;
   border-radius: 8px;
 
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
@@ -66,6 +70,16 @@ export const CoffeeResumeTrashButton = styled.button`
     width: 1.125rem;
     height: 1.125rem;
     color: ${(props) => props.theme.purple};
+  }
+
+  @media (max-width: 768px) {
+    height: 2rem;
+    padding: 0 0.25rem;
+    font-size: 0.6rem;
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 `
 
@@ -80,4 +94,10 @@ export const CoffeeResumePrice = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: 130%;
+
+  @media (max-width: 768px) {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+  }
 `

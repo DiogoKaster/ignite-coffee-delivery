@@ -14,4 +14,10 @@ export const CounterContainer = styled.input`
   color: ${(props) => props.theme['base-title']};
   font-family: 'Roboto';
   font-size: 1rem;
+
+  @media (max-width: 768px) {
+    width: 3.5rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
 `
